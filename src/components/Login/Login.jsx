@@ -3,8 +3,8 @@ import loginImage from "../../assets/password_223128.png";
 
 function Login() {
   return (
-    <div className="flex justify-center 2xl:justify-end 2xl:pr-80">
-      <div className="bg-white p-6 rounded-md">
+    <div className="grid grid-cols-1 xl:grid-cols-4">
+      <div className="bg-white p-6 rounded-md xl:col-span-1 xl:col-start-3">
         <div className="mb-8 flex flex-col gap-2.5">
           <img src={loginImage} alt="login icon" className="size-14 mx-auto" />
           <p className="uppercase text-blue-700">
