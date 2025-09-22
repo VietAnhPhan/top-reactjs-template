@@ -75,12 +75,11 @@ function Login() {
                   name="username"
                   id="username"
                   className="p-1.5 w-full"
-                  required
                   onChange={typingUsername}
                   value={username}
+                  required
                 />
               </div>
-              {authResults && <p className="text-red-500">{authResults}</p>}
             </div>
 
             <div className="flex flex-col mt-3">
@@ -108,9 +107,13 @@ function Login() {
                   id="password"
                   className="p-1.5 w-full"
                   required
+                  minLength={8}
+                  maxLength={30}
                 />
               </div>
             </div>
+
+            {authResults && <p className="text-red-500">{authResults}</p>}
             <button type="submit" className="mt-5">
               Login
             </button>
