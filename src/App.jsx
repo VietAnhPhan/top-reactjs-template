@@ -7,11 +7,11 @@ import Login from "./components/Login/Login";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Home sitename="ReactJS template" />,
   },
   {
     path: "/login",
-    element: <Login />,
+    element: <Login sitename="ReactJS template" />,
   },
 ]);
 

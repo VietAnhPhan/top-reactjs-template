@@ -3,7 +3,7 @@ import loginImage from "../../assets/password_223128.png";
 import { ErrorBoundary } from "react-error-boundary";
 import { useState } from "react";
 
-function Login() {
+function Login(props) {
   const [username, setUsername] = useState("");
   const [authResults, setAuthResults] = useState("");
 
@@ -38,6 +38,7 @@ function Login() {
     <ErrorBoundary
       fallback={<p>There was an error while submitting the form</p>}
     >
+      <title>{`Login | ${props.sitename}`}</title>
       <div className="grid grid-cols-1 xl:grid-cols-4">
         <div className="bg-white p-6 rounded-md xl:col-span-1 xl:col-start-3">
           <div className="mb-8 flex flex-col gap-2.5">
