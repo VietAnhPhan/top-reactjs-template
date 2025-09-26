@@ -1,11 +1,13 @@
 import "./Login.css";
 import loginImage from "../../assets/password_223128.png";
+import { AuthContext } from "../../Context";
 import { ErrorBoundary } from "react-error-boundary";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 function Login(props) {
   const [username, setUsername] = useState("");
   const [authResults, setAuthResults] = useState("");
+  const auth = useContext(AuthContext);
 
   function typingUsername(e) {
     setUsername(e.target.value);
@@ -26,9 +28,13 @@ function Login(props) {
       const result = await response.json();
       if (result.info) {
         setAuthResults(result.info.message);
+        return;
       }
 
+      auth.setToken(result.token);
+
       localStorage.setItem("access_token", result.token);
+      localStorage.setItem("userId", result.userId);
     } catch (e) {
       throw new Error(`login error: ${e.message}`);
     }

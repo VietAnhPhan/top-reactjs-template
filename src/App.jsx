@@ -1,9 +1,12 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
+import { useState } from "react";
 
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
+import Profile from "./components/Profile/Profile";
+import { AuthContext } from "./Context";
 
 const router = createBrowserRouter([
   {
@@ -18,12 +21,19 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <Signup sitename="ReactJS template" />,
   },
+  {
+    path: "/profile",
+    element: <Profile />,
+  },
 ]);
 
 function App() {
+  const [token, setToken] = useState(localStorage.getItem("access_token"));
   return (
     <>
-      <RouterProvider router={router}></RouterProvider>
+      <AuthContext value={{ token, setToken }}>
+        <RouterProvider router={router}></RouterProvider>
+      </AuthContext>
     </>
   );
 }
