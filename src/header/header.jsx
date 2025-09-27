@@ -36,11 +36,19 @@ export const Header = () => {
         )}
 
         {authContext.token ? (
-          <li>
-            <button type="button" className="p-0" onClick={() => logout()}>
-              Log out
-            </button>
-          </li>
+          <>
+            <li>
+              <a href="/your-posts">Your posts</a>
+            </li>
+            <li>
+              <a href="/new-post">New post</a>
+            </li>
+            <li>
+              <button type="button" className="p-0" onClick={() => logout()}>
+                Log out
+              </button>
+            </li>
+          </>
         ) : (
           ""
         )}

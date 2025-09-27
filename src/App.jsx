@@ -27,6 +27,12 @@ const router = createBrowserRouter([
     path: "/profile",
     element: <Profile />,
   },
+  {
+    path: "/your-posts",
+  },
+  {
+    path: "/new-post",
+  },
 ]);
 
 function App() {
