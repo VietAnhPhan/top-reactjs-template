@@ -48,9 +48,9 @@ function Login(props) {
       fallback={<p>There was an error while submitting the form</p>}
     >
       <title>{`Login | ${props.sitename}`}</title>
-      <div className="flex items-center h-full">
+      <div className="flex items-center h-full justify-center">
         <div className="grid grid-cols-1 xl:grid-cols-4">
-          <div className="bg-white p-6 rounded-md xl:col-span-1 xl:col-start-3">
+          <div className="bg-white p-6 rounded-md xl:col-span-1 xl:col-start-3 border-[1px] border-gray-400">
             <div className="mb-8 flex flex-col gap-2.5">
               <img
                 src={loginImage}
@@ -122,7 +122,7 @@ function Login(props) {
                 </div>
               </div>
               {authResults && <p className="text-red-500">{authResults}</p>}
-              <button type="submit" className="mt-5">
+              <button type="submit" className="mt-5 button-solid">
                 Login
               </button>
             </form>
