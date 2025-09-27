@@ -3,11 +3,13 @@ import loginImage from "../../assets/password_223128.png";
 import { AuthContext } from "../../Context";
 import { ErrorBoundary } from "react-error-boundary";
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router";
 
 function Login(props) {
   const [username, setUsername] = useState("");
   const [authResults, setAuthResults] = useState("");
   const auth = useContext(AuthContext);
+  let navigate = useNavigate();
 
   function typingUsername(e) {
     setUsername(e.target.value);
@@ -35,6 +37,7 @@ function Login(props) {
 
       localStorage.setItem("access_token", result.token);
       localStorage.setItem("userId", result.userId);
+      navigate("/");
     } catch (e) {
       throw new Error(`login error: ${e.message}`);
     }
