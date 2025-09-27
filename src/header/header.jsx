@@ -1,6 +1,18 @@
 import "./header.css";
+import { redirect } from "react-router";
+import { useContext } from "react";
+import { AuthContext } from "../Context";
 
 export const Header = () => {
+  const authContext = useContext(AuthContext);
+
+  function logout() {
+    authContext.setToken("");
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("userId");
+    redirect("/");
+  }
+
   return (
     <header>
       <ul className="flex justify-center gap-20">
@@ -13,6 +25,15 @@ export const Header = () => {
         <li>
           <a href="/signup">Sign up</a>
         </li>
+        {authContext.token ? (
+          <li>
+            <button type="button" className="p-0" onClick={() => logout()}>
+              Log out
+            </button>
+          </li>
+        ) : (
+          ""
+        )}
       </ul>
     </header>
   );
