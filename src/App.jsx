@@ -2,6 +2,8 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { useState } from "react";
 
+import { Header } from "./header/header.jsx";
+
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
@@ -32,6 +34,7 @@ function App() {
   return (
     <>
       <AuthContext value={{ token, setToken }}>
+        <Header />
         <RouterProvider router={router}></RouterProvider>
       </AuthContext>
     </>
