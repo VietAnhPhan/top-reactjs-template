@@ -19,12 +19,22 @@ export const Header = () => {
         <li>
           <a href="/">Home</a>
         </li>
-        <li>
-          <a href="/login">Login</a>
-        </li>
-        <li>
-          <a href="/signup">Sign up</a>
-        </li>
+        {authContext.token ? (
+          ""
+        ) : (
+          <li>
+            <a href="/login">Login</a>
+          </li>
+        )}
+
+        {authContext.token ? (
+          ""
+        ) : (
+          <li>
+            <a href="/signup">Sign up</a>
+          </li>
+        )}
+
         {authContext.token ? (
           <li>
             <button type="button" className="p-0" onClick={() => logout()}>
